@@ -16,7 +16,7 @@ class Backend(BaseBackend):
     def get_issue_choices(self) -> list[tuple[str, str]]:
         from issues.config import CONFIG
 
-        return list((x, y) for x, y in CONFIG.TYPES.items())
+        return list(CONFIG.TYPES.items())
 
     def create_ticket(self, cleaned_data: "IssueFormCleanedData") -> bool:
         description = self.get_description({**cleaned_data, "screenshot_url": ""})
